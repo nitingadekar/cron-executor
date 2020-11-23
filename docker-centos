@@ -1,0 +1,10 @@
+FROM centos:7
+
+RUN yum -y install crontabs
+
+ADD crontab /etc/cron.d/crontab
+RUN chmod 0644 /etc/cron.d/crontab
+RUN crontab /etc/cron.d/crontab
+
+
+CMD ["crond", "-n"]
